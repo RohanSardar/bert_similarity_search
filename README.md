@@ -24,7 +24,7 @@ Enter a word in the input box, choose how many similar words to retrieve (1–50
 
 - **Frontend/UI**: [Streamlit](https://streamlit.io/)
 - **NLP Model**: `bert-base-uncased` from [Hugging Face Transformers](https://huggingface.co/bert-base-uncased)
-- **Backend/Embedding Logic**: `transformers`, `torch`, `scikit-learn`
+- **Backend/Embedding Logic**: `transformers`, `torch`
 - **Visualization**: `matplotlib`, `wordcloud`
 
 
