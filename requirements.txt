@@ -2,7 +2,6 @@
 
 torch
 transformers
-scikit-learn
 numpy
 wordcloud
 streamlit
