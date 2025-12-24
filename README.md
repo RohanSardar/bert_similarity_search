@@ -7,6 +7,7 @@ A simple and interactive `Streamlit` app that finds semantically similar words u
 - 🔍 Search for semantically similar words using contextual BERT embeddings
 - 📊 Visualize results as a multi-column list with similarity scores
 - ☁️ Generate an interactive word cloud based on the top similar words
+- 🕸️ [LATEST] Visualize semantic similarity of words through an interactive network of graph
 - ✅ Efficient model loading using `@st.cache_resource`
 
 ## 🧠 Model
@@ -20,12 +21,17 @@ Enter a word in the input box, choose how many similar words to retrieve (1–50
 - A list of similar words with similarity scores
 - A word cloud representing the output distribution
 
+[LATEST]
+- Accepts a word, top_n, and graph similarity threshold to generate the network
+- Interactive Plotly network with zoom, pan, and adjustable similarity thresholds
+- Node connectivity used to highlight semantic structure and interpret relationships learned by BERT
+
 ## 🧰 Technical Stack
 
 - **Frontend/UI**: [Streamlit](https://streamlit.io/)
 - **NLP Model**: `bert-base-uncased` from [Hugging Face Transformers](https://huggingface.co/bert-base-uncased)
 - **Backend/Embedding Logic**: `transformers`, `torch`
-- **Visualization**: `matplotlib`, `wordcloud`
+- **Visualization**: `matplotlib`, `wordcloud`, `plotly`, `networkx`, `ipywidgets`
 
 
 ## 🗂️ Project Structure
@@ -33,8 +39,10 @@ Enter a word in the input box, choose how many similar words to retrieve (1–50
 ```
 ├── app.py
 ├── bert_model.py
+├── graph_app.py
 ├── README.md
 ├── requirements.txt
+├── visualize_bert_word_similarity.ipynb
 └── wordcloud_gen.py
 ```
 
@@ -42,6 +50,13 @@ Enter a word in the input box, choose how many similar words to retrieve (1–50
 - User inputs a word and selects how many similar words to display.
 - The `BERTSimilarity` class computes BERT embeddings and returns top N similar words using cosine similarity.
 - Results are displayed in four columns along with a word cloud visualization.
+
+[LATEST]
+- Built on with the full vocabulary (30,522 tokens) but excluding special tokens, subwords, non-alphabetic tokens & short words
+- Accepts a word, top_n, and graph similarity threshold to generate the network
+- Graph-based visualization using NetworkX
+- Interactive Plotly network with zoom, pan, and adjustable similarity thresholds
+- Node connectivity used to highlight semantic structure and interpret relationships learned by BERT
 
 ## 🛠️ Git Setup & Repository Cloning
 If you haven't installed Git:
